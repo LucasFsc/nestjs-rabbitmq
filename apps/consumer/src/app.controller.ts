@@ -10,6 +10,6 @@ export class AppController {
 
   @EventPattern('multiply_by_two')
   async multiplyByTwo({ data }: Record<string, number>) {
-    return data * 2;
+    console.log(data * 2);
   }
 }

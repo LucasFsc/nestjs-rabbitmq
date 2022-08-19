@@ -6,11 +6,11 @@ import { Services } from './common/enum/services.enum';
 export class AppService {
   constructor(@Inject(Services.MATH_SERVICE) private client: ClientProxy) {}
 
-  async multiplyByTwo(data: number) {
-    return this.client.emit('multiply_by_two', { data });
-  }
-
   async sum(data: number[]) {
     return await this.client.send({ cmd: 'sum' }, data);
+  }
+
+  async multiplyByTwo(data: number) {
+    return await this.client.emit('multiply_by_two', { data });
   }
 }
